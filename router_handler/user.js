@@ -95,11 +95,27 @@ exports.updateAvatar = (req, res) => {
 
 // 获取所有用户的用户名
 exports.getAllUsername = (req, res) => {
-    const sql = `SELECT username FROM user`;
+    const sql = `SELECT id, username, nickname, status, identity FROM user`;
     db.query(sql, (err, results) => {
         if (err) {
             return res.send({ status: 1, message: err.message });
         }
         res.send({ status: 0, message: '获取用户名成功', data: results });
+    });
+}
+
+// 根据用户id更新用户状态
+exports.updateUserStatus = (req, res) => {
+    const userinfo = req.body;
+    const sql = `UPDATE user SET status = ? WHERE id = ?`;
+    const status = userinfo.status=='true' ? 1 : 0;
+    db.query(sql, [status, userinfo.id], (err, results) => {
+        if (err) {
+            return res.send({ status: 1, message: err.message });
+        }
+        if (results.affectedRows !== 1) {
+            return res.send({ status: 1, message: '更新用户状态失败' });
+        }
+        res.send({ status: 0, message: '更新用户状态成功' });
     });
 }

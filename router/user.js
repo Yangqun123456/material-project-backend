@@ -11,4 +11,6 @@ router.post('/updateUserInfo', user_hander.updateUserInfo)
 router.post('/updateUserPassword', expressJoi(updateUserPassword_schema), user_hander.updateUserPassword)
 router.patch('/updateAvatar', expressJoi(updateAvatar_schema), user_hander.updateAvatar)
 router.get('/getAllUsername', user_hander.getAllUsername)
+router.post('/updateUserStatus', user_hander.updateUserStatus)
+
 module.exports = router

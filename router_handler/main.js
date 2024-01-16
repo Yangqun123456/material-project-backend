@@ -58,6 +58,8 @@ exports.login = (req, res) => {
         if (err) return res.cc(err);
         // 执行 SQL 语句成功，但是获取到的数据条数不等于 1
         if (results.length !== 1) return res.cc("用户名不存在！");
+        // 检查用户状态和身份
+        if (results[0].status !== 1 && results[0].identity !== 'administrator') return res.cc("用户状态不正确，无法登录！");
         // 判断密码是否正确
         const compareResult = bcrypt.compareSync(
             userinfo.password,
