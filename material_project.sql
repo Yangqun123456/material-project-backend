@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 2024-01-08 02:57:32
+-- Generation Time: 2024-01-16 08:54:52
 -- 服务器版本： 5.7.15-log
 -- PHP Version: 5.6.26
 
@@ -64,8 +64,7 @@ CREATE TABLE `material` (
 --
 
 INSERT INTO `material` (`id`, `material_id`, `input_sequence`, `Q_number`, `wu_1`, `wu_2`, `shang_1`, `shang_2`, `xia_1`, `xia_2`, `material_date`, `username`, `height1`, `height2`, `height3`, `height4`, `height5`, `height6`, `height7`, `height8`, `small1`, `small2`, `small3`, `small4`, `big1`, `big2`, `big3`, `big4`, `input_date`, `input_name`) VALUES
-(38, 'A002', 1, '7000', '213.0', '213.0', '123.0', '4321.0', '23.0', '546.0', '2024-01-03 12:39:23', 'yq', '435', '457', '45', '53', '546', '24', '46', '45', '12', '213', '45', '34', '213', '12', '324', '45', '2024-01-23 00:00:00', NULL),
-(47, 'A002', 2, '8000', '21', '12', '12', '213', '12', '123', '2024-01-09 00:00:00', 'yq', '213', '23', '324', '32.56', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '2024-01-05 00:00:00', 'yq');
+(61, 'A004', 1, '5000', '1200.0', '1200.0', '1200.0', '1200.0', '1200.0', '1200.0', '2024-01-16 12:51:23', 'yq', '110.0', '110.0', '110.0', '110.0', '110.0', '110.0', '110.0', '110.0', '200.0', '200.0', '200.0', '200.0', '200.0', '200.0', '200.0', '200.0', '2024-01-16 12:57:48', 'yq');
 
 -- --------------------------------------------------------
 
@@ -81,15 +80,18 @@ CREATE TABLE `user` (
   `Registered_Date` datetime NOT NULL COMMENT '注册日期',
   `nickname` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `avatar` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL
+  `avatar` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '注册状态'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- 转存表中的数据 `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `identity`, `Registered_Date`, `nickname`, `email`, `avatar`) VALUES
-(1, 'yq', '$2a$10$Bf9SJVc77GMkCfTUQkZ29.DhPGVYXW4J00HDc9/a3dLxrAc0A.6W2', 'administrator', '2023-12-13 15:49:53', '杨群', '2537148609@qq.com', 'uploads\\1.png');
+INSERT INTO `user` (`id`, `username`, `password`, `identity`, `Registered_Date`, `nickname`, `email`, `avatar`, `status`) VALUES
+(1, 'yq', '$2a$10$Bf9SJVc77GMkCfTUQkZ29.DhPGVYXW4J00HDc9/a3dLxrAc0A.6W2', 'administrator', '2023-12-13 15:49:53', '杨群', '2537148609@qq.com', 'uploads\\1.png', 1),
+(2, 'mc', '$2a$10$jlmsmV80zZex1VysFeNkXOk2l0BrS7TB7C86jnz6d1TSk4mKTNube', 'user', '2024-01-10 21:54:30', NULL, NULL, NULL, 1),
+(3, 'administrator', '$2a$10$JGH/iA1HvhicQQqKCDSUjOMJqe.H1XXt7ltvnSpVRztkEY5nQs7tu', 'administrator', '2024-01-11 10:39:06', '管理员', NULL, NULL, 1);
 
 --
 -- Indexes for dumped tables
@@ -116,12 +118,12 @@ ALTER TABLE `user`
 -- 使用表AUTO_INCREMENT `material`
 --
 ALTER TABLE `material`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 --
 -- 使用表AUTO_INCREMENT `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户编号', AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户编号', AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
