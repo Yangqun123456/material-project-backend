@@ -31,7 +31,7 @@ exports.register = (req, res) => {
             {
                 username: userinfo.username,
                 password: userinfo.password,
-                identity: userinfo.identity,
+                identity: 'user',
                 Registered_Date: new Date().Format("yyyy-MM-dd HH:mm:ss"),
             },
             (err, results) => {
